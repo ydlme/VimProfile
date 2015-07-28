@@ -19,14 +19,14 @@ syntax on
 "--------
 " color scheme
 set background=dark
-" color solarized
+"color solarized
 
 " highlight current line
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
 set cursorline cursorcolumn
 
-" colorscheme molokai
+"colorscheme molokai
 
 " search
 set incsearch
@@ -85,7 +85,6 @@ let g:html_indent_style1 = "inc"
 "
 " ----------------
 Bundle 'Rip-Rip/clang_complete'
-Bundle 'davidhalter/jedi-vim'
 
 let g:clang_complete_copen=1  
 let g:clang_periodic_quickfix=1  
@@ -214,7 +213,7 @@ let g:neocomplcache_omni_patterns.erlang = '[a-zA-Z]\|:'
 
 " SuperTab
 " let g:SuperTabDefultCompletionType='context'
-let g:SuperTabDefaultCompletionType = '<C-X><C-U>'
+let g:SuperTabDefaultCompletionType = '<C-X><C-o>'
 let g:SuperTabRetainCompletionType=2
 
 " ctrlp
@@ -229,6 +228,8 @@ nmap <F9> :call CompileRunGcc()<CR>
 nmap <F8> gg=G<cr>
 nmap <C-x> :q!<cr>
 nmap <F2> :w<cr>
+nmap <C-m> :w!<cr> :!make<cr>
+nmap <C-n> :!make clean<cr>
 nmap <F7> gg=G<cr>
 nmap <F3> :NERDTreeToggle<cr>
 nmap <F6> :GundoToggle<cr>
@@ -241,13 +242,11 @@ nnoremap <leader>v V`]
 func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'c'
-		exec "!clang-3.5 -g % -o %<"
-        exec "!time ./%<"
-        exec "!gdb ./%<"
+		exec "!g++ % -o %<"
+		exec "!time ./%<"
 	elseif &filetype == 'cpp'
-		exec "!clang++-3.5 -g -std=c++11 % -o %<"
-        exec "!time ./%<"
-        exec "!gdb ./%<"
+		exec "!g++ -std=c++11 % -o %<"
+		exec "!time ./%<"
 	elseif &filetype == 'java' 
 		exec "!javac %" 
 		exec "!time java %<"
