@@ -91,8 +91,7 @@ let g:clang_periodic_quickfix=1
 let g:clang_snippets=1  
 let g:clang_close_preview=1  
 let g:clang_use_library=1  
-let g:clang_user_options='-stdlib=libc++ -std=c++11 -IIncludePath'      
-let g:neocomplcache_enable_at_startup = 1  
+let g:clang_user_options='-stdlib=libc++ -std=c++0x -IIncludePath'      
 let g:clang_library_path='/usr/lib/llvm-3.5/lib'
 let g:clang_user_options='|| exit 0'
 
@@ -191,6 +190,7 @@ let g:neoComplcache_disableautocomplete=1
 "let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_smart_case=1
 let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_temporary_dir = "$HOME/.vim/tmp/neocomplcache"
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 set completeopt-=preview
 
@@ -228,6 +228,8 @@ nmap <F9> :call CompileRunGcc()<CR>
 nmap <F8> gg=G<cr>
 nmap <C-x> :q!<cr>
 nmap <F2> :w<cr>
+nmap <C-r> :cclose<cr>
+nmap <C-f> :copen<cr>
 nmap <C-m> :w!<cr> :!make<cr>
 nmap <C-n> :!make clean<cr>
 nmap <F7> gg=G<cr>
@@ -242,10 +244,10 @@ nnoremap <leader>v V`]
 func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'c'
-		exec "!g++ % -o %<"
+		exec "!clang -g % -o %<"
 		exec "!time ./%<"
 	elseif &filetype == 'cpp'
-		exec "!g++ -std=c++11 % -o %<"
+		exec "!clang++ -g -std=c++11 % -o %<"
 		exec "!time ./%<"
 	elseif &filetype == 'java' 
 		exec "!javac %" 
