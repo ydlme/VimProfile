@@ -227,6 +227,7 @@ nmap <F5> :TagbarToggle<cr>
 nmap <F9> :call CompileRunGcc()<CR>
 nmap <F8> gg=G<cr>
 nmap <C-x> :q!<cr>
+nmap <C-b> :ls<cr>
 nmap <F2> :w<cr>
 nmap <C-r> :cclose<cr>
 nmap <C-f> :copen<cr>
