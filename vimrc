@@ -12,7 +12,7 @@ syntax on
 "-------
 " YouCompleteMe
 "------
-" Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 
 "--------
 " Vim UI
@@ -84,7 +84,7 @@ let g:html_indent_style1 = "inc"
 " clang_complete
 "
 " ----------------
-Bundle 'Rip-Rip/clang_complete'
+" Bundle 'Rip-Rip/clang_complete'
 
 let g:clang_complete_copen=1  
 let g:clang_periodic_quickfix=1  
