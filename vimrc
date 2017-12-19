@@ -1,4 +1,7 @@
-source ~/.vim/bundles.vim
+" source ~/.vim/bundles.vim
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
 " encoding dectection
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
@@ -12,7 +15,7 @@ syntax on
 "-------
 " YouCompleteMe
 "------
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 
 "--------
 " Vim UI
@@ -28,6 +31,22 @@ set cursorline cursorcolumn
 
 "colorscheme molokai
 
+"--------------
+" IDE features
+"--------------
+Bundle 'scrooloose/nerdtree'
+Bundle 'humiaozuzu/TabBar'
+Bundle 'majutsushi/tagbar'
+Bundle 'mileszs/ack.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'scrooloose/syntastic'
+Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'andviro/flake8-vim'
+
+"-------------
+" Other Utils
 " search
 set incsearch
 "set highlight 	" conflict with highlight current line
